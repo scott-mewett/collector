@@ -7,7 +7,7 @@ This document provides information on how to add the RealTheory collector to you
 ```sh
 kubectl apply -f <filename>
 ```
-where <filename> is the path to the RealTheory Collector configuration document.
+where `<filename>` is the path to the RealTheory Collector configuration document.
 
 ## 3. Configuration Structure
 The RealTheory Collector configuration document is made up of 5 sections, namely:
