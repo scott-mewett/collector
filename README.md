@@ -1,39 +1,63 @@
 # RealTheory Collector
 
-## 1. Introduction
-This document provides information on how to add the RealTheory collector to your cluster.
+## Introduction
+This document provides information on how to add the RealTheory collector to your Kubernetes cluster.
 
-## 2. Usage
+## Minimum Requirements
+
+### Kubernetes
+The RealTheory collector is currently supported on the following versions of Kubernetes:
+
+- 1.20
+- 1.19
+- 1.18 (Best experienced with 1.18.9 or higher)
+- 1.17 (Best experienced with 1.17.12 or higher)
+- 1.16 (Best experienced with 1.16.15 or higher)
+
+For more information on Kubernetes, please visit https://github.com/kubernetes/kubernetes
+
+### Metrics Server
+The RealTheory collector requires the Metrics Server to be installed on the Kubernetes cluster. The Metrics Server is an aggregator of resource usage data in your Kubernetes cluster. For more information on the Kubernetes Metrics Server, inclusing installation instructions, please visit https://github.com/kubernetes-sigs/metrics-server
+
+The Metrics Server is automatically installed with some managed versions of Kubernetes. The following table indicates which managed Kubernetes offerings include the Metrics Server as part of the standard offering.
+
+| Managed Kubernetes Offering | Includes Metric Server | More information |
+|-----------------------------|------------------------|------------------|
+| AKS | Yes | |
+| GKE | Yes | |
+| EKS | No | [How to install the Metrics Server on EKS](https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html) |
+
+## Usage
 ```sh
 kubectl apply -f <filename>
 ```
 where `<filename>` is the path to the RealTheory Collector configuration document.
 
-## 3. Configuration Structure
+## Configuration Structure
 The RealTheory Collector configuration document is made up of 5 sections, namely:
 
-  1. Namespace
-  1. ServiceAccount
-  1. ClusterRole
-  1. ClusterRoleBinding
-  1. Deployment
+- Namespace
+- ServiceAccount
+- ClusterRole
+- ClusterRoleBinding
+- Deployment
 
-### 1. Namespace
+### Namespace
 This section is used to define a dedciated namespace for the RealTheory collector to run in.
 
-### 2. ServiceAccount
+### ServiceAccount
 This section is used to define a service account, which provides an identity for the RealTheory collector.
 
-### 3. ClusterRole
+### ClusterRole
 This section defines a cluster role, which is a set of permissions that can be assigned to resources within a cluster. This cluster role grants read access (get, watch and list) to kubernetes control plane and metrics APIs.
 
-### 4. ClusterRoleBinding
+### ClusterRoleBinding
 This section defines a cluster role binding, which grants the Service Account for collector in the real-theory-system namespace to read objects across all namespaces
 
-### 5. Deployment
+### Deployment
 This section defines a deployment to launch the RealTheory collector pod within the real-theory-system namespace with a service account identity.
 
-## 4. Sample artifact
+## Sample artifact
 
 ```yaml
 # The namespace used for the Collector.
