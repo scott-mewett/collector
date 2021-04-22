@@ -52,7 +52,7 @@ This section is used to define a service account, which provides an identity for
 This section defines a cluster role, which is a set of permissions that can be assigned to resources within a cluster. This cluster role grants read access (get, watch, and list) to kubernetes control plane and metrics APIs.
 
 ### ClusterRoleBinding
-This section defines a cluster role binding, which grants the Service Account for collector in the real-theory-system namespace to read objects across all namespaces
+This section defines a cluster role binding, which grants the Service Account for the collector the ability to read objects across all namespaces.
 
 ### Deployment
 This section defines a deployment to launch the RealTheory collector pod within the real-theory-system namespace with a service account identity.
@@ -88,7 +88,7 @@ rules:
   resources: ["*"]
   verbs: [get, watch, list]
 ---
-# The cluster role binding allows the Service Account for collector in the real-theory-system namespace to read objects in any namespace.
+# The cluster role binding allows the Service Account for the collector in the real-theory-system namespace to read objects in any namespace.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
