@@ -10,9 +10,9 @@ The RealTheory collector is currently supported on the following versions of Kub
 
 - 1.20
 - 1.19
-- 1.18 (Best experienced with 1.18.9 or higher)
-- 1.17 (Best experienced with 1.17.12 or higher)
-- 1.16 (Best experienced with 1.16.15 or higher)
+- 1.18 - Best experienced with version 1.18.9 or higher
+- 1.17 - Best experienced with version 1.17.12 or higher
+- 1.16 - Best experienced with version 1.16.15 or higher
 
 For more information on Kubernetes, please visit https://github.com/kubernetes/kubernetes
 
