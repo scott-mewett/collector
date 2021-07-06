@@ -84,6 +84,9 @@ rules:
 - apiGroups: [""]
   resources: ["*"]
   verbs: [get, watch, list]
+- apiGroups: ["apps"]
+  resources: ["*"]
+  verbs: [get, watch, list]
 - apiGroups: [metrics.k8s.io]
   resources: ["*"]
   verbs: [get, watch, list]
@@ -215,6 +218,6 @@ spec:
         - name: THEORY_SECURITY_AUTHENTICATION_TYPE
           value: InsideCluster
         - name: THEORY_CLUSTER_NAME
-          value: MyExampleCluster
+          value: MyCluster
           ...
 ```
