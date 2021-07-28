@@ -11,7 +11,7 @@ The RealTheory collector supports using a proxy server to connect to the Interne
 
 ## How do I check if my cluster requires a proxy server?
 
-The best way to check if your cluster requires a proxy server to connect to the Internet is to check with your network adminstrator.
+The best way to check if your cluster requires a proxy server to connect to the Internet is to check with your network administrator.
 
 ## How do I enable proxy server support?
 The RealTheory collector supports using a proxy server to connect to the Internet.
