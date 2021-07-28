@@ -8,13 +8,13 @@ The RealTheory collector requires the Metrics Server to be installed on the Kube
 
 The Metrics Server is automatically installed with some managed versions of Kubernetes. The following table indicates which managed Kubernetes offerings include the Metrics Server as part of the standard offering.
 
-| Managed Kubernetes Offering | Includes Metric Server | More information |
-|-----------------------------|------------------------|------------------|
+| Managed Kubernetes Offering | Includes Metrics Server | More information |
+|-----------------------------|-------------------------|------------------|
 | AKS | Yes | |
 | GKE | Yes | |
 | EKS | No | [How to install the Metrics Server on EKS](https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html) |
 
-## How to check if the Metrics Server is installed in your cluster?
+## How do I check if the Metrics Server is installed in my cluster?
 There are multiple ways to check if your cluster is running the Metrics Server:
 
 1. Run the following command and inspect the output

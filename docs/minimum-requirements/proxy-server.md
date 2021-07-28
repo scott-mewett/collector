@@ -9,11 +9,11 @@ A proxy server is a server application that acts as an intermediary between a cl
 
 The RealTheory collector supports using a proxy server to connect to the Internet.
 
-## How to check if your cluster requires a proxy server?
+## How do I check if my cluster requires a proxy server?
 
 The best way to check if your cluster requires a proxy server to connect to the Internet is to check with your network adminstrator.
 
-## How to enable proxy server support?
+## How do I enable proxy server support?
 The RealTheory collector supports using a proxy server to connect to the Internet.
 
 If you require a proxy server to connect to the Internet, add the following *name* and *value* pair under the *spec > template > spec > containers > env* section of the collector deployment manifest:

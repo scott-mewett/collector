@@ -21,8 +21,8 @@ The RealTheory collector requires the Metrics Server to be installed on the Kube
 
 The Metrics Server is automatically installed with some managed versions of Kubernetes. The following table indicates which managed Kubernetes offerings include the Metrics Server as part of the standard offering.
 
-| Managed Kubernetes Offering | Includes Metric Server | More information |
-|-----------------------------|------------------------|------------------|
+| Managed Kubernetes Offering | Includes Metrics Server | More information |
+|-----------------------------|-------------------------|------------------|
 | AKS | Yes | |
 | GKE | Yes | |
 | EKS | No | [How to install the Metrics Server on EKS](https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html) |
@@ -30,7 +30,7 @@ The Metrics Server is automatically installed with some managed versions of Kube
 For more information, please visit https://github.com/realtheory/collector/blob/main/docs/minimum-requirements/metrics-server.md
 
 ### RBAC
-The RealTheory collector requires specific RBAC access in order to successfully install it within your cluster. If RBAC is enabled, you will require RBAC access to create a service account, cluster role, cluster role binding and a deployment.
+In order to successfully install the RealTheory collector within your cluster, you will require specific RBAC access; specifically you will require the ability to create a service account, cluster role, cluster role binding and a deployment.
 
 For more information, please visit https://github.com/realtheory/collector/blob/main/docs/minimum-requirements/rbac.md
 

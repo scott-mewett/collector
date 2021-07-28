@@ -12,8 +12,8 @@ The RealTheory collector is currently supported on the following versions of Kub
 - 1.17 - Best experienced with version 1.17.12 or later
 - 1.16 - Best experienced with version 1.16.15 or later
 
-## How to check whether your cluster's Kubernetes version?
-The simplest way of checking a cluster’s Kubernetes version is to use the kubectl version command. This command will output information for the kubectl cluster and the Kubernetes client.
+## How do I check my cluster's Kubernetes version?
+The simplest way of checking your cluster’s Kubernetes version is to use the kubectl version command. This command will output information for the kubectl cluster and the Kubernetes client.
 
 ```sh
 kubectl version
