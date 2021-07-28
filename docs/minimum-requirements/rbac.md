@@ -8,7 +8,7 @@ RBAC, role-based access control (RBAC) is a method of regulating access to compu
 
 The RealTheory collector requires specific RBAC access in order to successfully install it within your cluster.
 
-## How do I check that I have the required access to install the collector?
+## How do I check if I have the required access to install the collector?
 
 If RBAC is enabled, you will require RBAC access to create a service account, cluster role, cluster role binding and a deployment.
 
