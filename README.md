@@ -14,7 +14,7 @@ The RealTheory collector is currently supported on the following versions of Kub
 - 1.17 - Best experienced with version 1.17.12 or later
 - 1.16 - Best experienced with version 1.16.15 or later
 
-For more information on Kubernetes, please visit https://github.com/kubernetes/kubernetes
+For more information, please visit https://github.com/realtheory/collector/blob/main/docs/minimum-requirements/kubernetes-version.md
 
 ### Metrics Server
 The RealTheory collector requires the Metrics Server to be installed on the Kubernetes cluster. The Metrics Server is an aggregator of resource usage data in your Kubernetes cluster. For more information on the Kubernetes Metrics Server, including installation instructions, please visit https://github.com/kubernetes-sigs/metrics-server
@@ -26,6 +26,13 @@ The Metrics Server is automatically installed with some managed versions of Kube
 | AKS | Yes | |
 | GKE | Yes | |
 | EKS | No | [How to install the Metrics Server on EKS](https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html) |
+
+For more information, please visit https://github.com/realtheory/collector/blob/main/docs/minimum-requirements/metrics-server.md
+
+### RBAC
+The RealTheory collector requires specific RBAC access in order to successfully install it within your cluster. If RBAC is enabled, you will require RBAC access to create a service account, cluster role, cluster role binding and a deployment.
+
+For more information, please visit https://github.com/realtheory/collector/blob/main/docs/minimum-requirements/rbac.md
 
 ## Usage
 ```sh
@@ -43,7 +50,7 @@ The RealTheory Collector configuration document is made up of 5 sections, namely
 - Deployment
 
 ### Namespace
-This section is used to define a dedciated namespace for the RealTheory collector to run in.
+This section is used to define a dedicated namespace for the RealTheory collector to run in.
 
 ### ServiceAccount
 This section is used to define a service account, which provides an identity for the RealTheory collector.
@@ -219,5 +226,74 @@ spec:
           value: InsideCluster
         - name: THEORY_CLUSTER_NAME
           value: MyCluster
+          ...
+```
+
+If you require a proxy server to connect to the Internet, add the following *name* and *value* pair under the *spec > template > spec > containers > env* section of the collector deployment manifest:
+
+1. Proxy server with authentication using a username and password
+
+   Usage:
+   ```
+   - name: THEORY_SERVICES_NETWORK_HTTPPROXYURL
+     value: https://USERNAME:PASSWORD@ADDRESS:PORT/
+   ```
+
+   Example
+   ```
+   - name: THEORY_SERVICES_NETWORK_HTTPPROXYURL
+     value: https://myusername:mypassword@47.91.179.52:443
+   ```
+
+1. Proxy server without authentication
+
+   Usage:
+   ```
+   - name: THEORY_SERVICES_NETWORK_HTTPPROXYURL
+     value: https://ADDRESS:PORT/
+   ```
+
+   Example:
+   ```
+   - name: THEORY_SERVICES_NETWORK_HTTPPROXYURL
+     value: https://47.91.179.52:443
+   ```
+
+An example might look like:
+
+```yaml
+# The deployment creates a replica set to launch the Collector pod.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: realtheorycollector
+  name: realtheorycollector
+  namespace: real-theory-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: realtheorycollector
+  template:
+    metadata:
+      labels:
+        app: realtheorycollector
+      name: realtheorycollector
+    spec:
+      containers:
+      - env:
+        - name: THEORY_LOGGING_LEVEL
+          value: Info
+        - name: THEORY_LOGGING_FILE_PATH
+          value: /theory/logs/collector.log
+        - name: THEORY_SERVICES_NETWORK_K8SROUTERURL
+          value: https://api-beta.realtheory.io/theory/api/v1/k8srouter
+        - name: THEORY_SERVICES_AUTHENTICATION_USERTOKEN
+          value: BAAAAFRlc3TH0J3HOOcj3ZKALneTbdon65AU8TZGiP7XHu5HarCnM2vcJolMqknGgeSXkY5AMXnNZpvi1acmBOCcE4rpkHlGxbovqv2Qs4dWOhwlpwnGgeSXkY5AMXnNZpvi1acmBOCcE4rpkHJ3HOOcj3ZKALne
+        - name: THEORY_SECURITY_AUTHENTICATION_TYPE
+          value: InsideCluster
+        - name: THEORY_SERVICES_NETWORK_HTTPPROXYURL
+          value: https://myusername:mypassword@47.91.179.52:443
           ...
 ```
