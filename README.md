@@ -8,6 +8,10 @@ This document provides information on how to add the RealTheory collector to you
 ### Kubernetes
 The RealTheory collector is currently supported on the following versions of Kubernetes:
 
+- 1.24
+- 1.23
+- 1.22
+- 1.21
 - 1.20
 - 1.19
 - 1.18 - Best experienced with version 1.18.9 or later
@@ -231,17 +235,25 @@ spec:
 
 If you require a proxy server to connect to the Internet, add the following *name* and *value* pair under the *spec > template > spec > containers > env* section of the collector deployment manifest:
 
+**HTTP_PROXY**: The proxy server used on HTTP requests.
+
+**HTTPS_PROXY**: The proxy server used on HTTPS requests.
+
+**NO_PROXY**: A comma-separated list of hostnames that should be excluded from proxying.
+
+Examples
+
 1. Proxy server with authentication using a username and password
 
    Usage:
    ```
-   - name: THEORY_SERVICES_NETWORK_HTTPPROXYURL
+   - name: HTTP_PROXY
      value: https://USERNAME:PASSWORD@ADDRESS:PORT/
    ```
 
    Example
    ```
-   - name: THEORY_SERVICES_NETWORK_HTTPPROXYURL
+   - name: HTTP_PROXY
      value: https://myusername:mypassword@47.91.179.52:443
    ```
 
@@ -249,13 +261,13 @@ If you require a proxy server to connect to the Internet, add the following *nam
 
    Usage:
    ```
-   - name: THEORY_SERVICES_NETWORK_HTTPPROXYURL
+   - name: HTTP_PROXY
      value: https://ADDRESS:PORT/
    ```
 
    Example:
    ```
-   - name: THEORY_SERVICES_NETWORK_HTTPPROXYURL
+   - name: HTTP_PROXY
      value: https://47.91.179.52:443
    ```
 
@@ -293,7 +305,7 @@ spec:
           value: BAAAAFRlc3TH0J3HOOcj3ZKALneTbdon65AU8TZGiP7XHu5HarCnM2vcJolMqknGgeSXkY5AMXnNZpvi1acmBOCcE4rpkHlGxbovqv2Qs4dWOhwlpwnGgeSXkY5AMXnNZpvi1acmBOCcE4rpkHJ3HOOcj3ZKALne
         - name: THEORY_SECURITY_AUTHENTICATION_TYPE
           value: InsideCluster
-        - name: THEORY_SERVICES_NETWORK_HTTPPROXYURL
+        - name: HTTPS_PROXY
           value: https://myusername:mypassword@47.91.179.52:443
           ...
 ```
