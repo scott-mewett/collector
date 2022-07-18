@@ -6,6 +6,10 @@ This document provides information related to the minimum requirements for runni
 ## Kubernetes Version
 The RealTheory collector is currently supported on the following versions of Kubernetes:
 
+- 1.24
+- 1.23
+- 1.22
+- 1.21
 - 1.20
 - 1.19
 - 1.18 - Best experienced with version 1.18.9 or later
@@ -21,8 +25,8 @@ kubectl version
 
 Output
 ```
-Client Version: version.Info{Major:"1", Minor:"19", GitVersion:"v1.19.1", GitCommit:"092fbfbf53427de67cac1e9fa54aaa09a28371d7", GitTreeState:"clean", BuildDate:"2021-02-16T12:59:11Z", GoVersion:"go1.15.0", Compiler:"gc", Platform:"linux/amd64"}
-Server Version: version.Info{Major:"1", Minor:"19", GitVersion:"v1.19.11", GitCommit:"c18ff7bd5227b42c617cf371cf315d0423e91d5e", GitTreeState:"clean", BuildDate:"2021-05-25T17:38:04Z", GoVersion:"go1.15.12", Compiler:"gc", Platform:"linux/amd64"}
+Client Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.1", GitCommit:"632ed300f2c34f6d6d15ca4cef3d3c7073412212", GitTreeState:"clean", BuildDate:"2021-08-19T15:45:37Z", GoVersion:"go1.16.7", Compiler:"gc", Platform:"windows/amd64"}
+Server Version: version.Info{Major:"1", Minor:"21", GitVersion:"v1.21.7", GitCommit:"3c28d5b50e68d9c6da51840bbdebf6bd0673dde5", GitTreeState:"clean", BuildDate:"2022-06-04T17:59:02Z", GoVersion:"go1.16.10", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
 The Server Version is the cluster's Kubernetes version.
