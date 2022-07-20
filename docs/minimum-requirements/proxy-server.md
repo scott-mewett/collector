@@ -14,13 +14,17 @@ The RealTheory collector supports using a proxy server to connect to the Interne
 The best way to check if your cluster requires a proxy server to connect to the Internet is to check with your network administrator.
 
 ## How do I enable proxy server support?
-The RealTheory collector supports using a proxy server to connect to the Internet using the following environment values:
-
-1. HTTP_PROXY - Defines the URL of the proxy server for HTTP requests to access the Internet.
-1. HTTPS_PROXY - Defines the URL of the proxy server for HTTPS requests to access the Internet.
-1. NO_PROXY - Defines the host names that shouldn’t go through the proxy server to access the Internet.
+The RealTheory collector supports using a proxy server to connect to the Internet.
 
 If you require a proxy server to connect to the Internet, add the following *name* and *value* pair under the *spec > template > spec > containers > env* section of the collector deployment manifest.
+
+  - **HTTP_PROXY**: Defines the URL of the proxy server for HTTP requests to access the Internet.
+
+  - **HTTPS_PROXY**: Defines the URL of the proxy server for HTTPS requests to access the Internet.
+
+  - **NO_PROXY**: Defines a comma-separated list of host names that shouldn’t go through the proxy server to access the Internet.
+
+Examples:
 
 1. Proxy server with authentication using a username and password
 

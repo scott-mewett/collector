@@ -235,13 +235,13 @@ spec:
 
 If you require a proxy server to connect to the Internet, add the following *name* and *value* pair under the *spec > template > spec > containers > env* section of the collector deployment manifest:
 
-**HTTP_PROXY**: The proxy server used on HTTP requests.
+**HTTP_PROXY**: Defines the URL of the proxy server for HTTP requests to access the Internet.
 
-**HTTPS_PROXY**: The proxy server used on HTTPS requests.
+**HTTPS_PROXY**: Defines the URL of the proxy server for HTTPS requests to access the Internet.
 
-**NO_PROXY**: A comma-separated list of hostnames that should be excluded from proxying.
+**NO_PROXY**: Defines a comma-separated list of host names that shouldn’t go through the proxy server to access the Internet.
 
-Examples
+Examples:
 
 1. Proxy server with authentication using a username and password
 
