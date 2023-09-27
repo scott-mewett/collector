@@ -8,15 +8,16 @@ This document provides information on how to add the RealTheory collector to you
 ### Kubernetes
 The RealTheory collector is currently supported on the following versions of Kubernetes:
 
+- 1.27
+- 1.26
+- 1.25
 - 1.24
 - 1.23
 - 1.22
 - 1.21
 - 1.20
 - 1.19
-- 1.18 - Best experienced with version 1.18.9 or later
-- 1.17 - Best experienced with version 1.17.12 or later
-- 1.16 - Best experienced with version 1.16.15 or later
+- 1.18
 
 For more information, please visit https://github.com/realtheory/collector/blob/main/docs/minimum-requirements/kubernetes-version.md
 
@@ -174,7 +175,7 @@ spec:
         - mountPath: /theory/logs
           name: logs-volume
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
       serviceAccountName: real-theory-collector
       volumes:
       - emptyDir: {}
