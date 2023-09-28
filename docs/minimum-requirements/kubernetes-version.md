@@ -6,15 +6,15 @@ This document provides information related to the minimum requirements for runni
 ## Kubernetes Version
 The RealTheory collector is currently supported on the following versions of Kubernetes:
 
+- 1.26
+- 1.25
 - 1.24
 - 1.23
 - 1.22
 - 1.21
 - 1.20
 - 1.19
-- 1.18 - Best experienced with version 1.18.9 or later
-- 1.17 - Best experienced with version 1.17.12 or later
-- 1.16 - Best experienced with version 1.16.15 or later
+- 1.18
 
 ## How do I check my cluster's Kubernetes version?
 The simplest way of checking your cluster’s Kubernetes version is to use the kubectl version command. This command will output information for the kubectl cluster and the Kubernetes client.
