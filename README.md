@@ -8,16 +8,13 @@ This document provides information on how to add the RealTheory collector to you
 ### Kubernetes
 The RealTheory collector is currently supported on the following versions of Kubernetes:
 
+- 1.28
 - 1.27
 - 1.26
 - 1.25
 - 1.24
 - 1.23
 - 1.22
-- 1.21
-- 1.20
-- 1.19
-- 1.18
 
 For more information, please visit https://github.com/realtheory/collector/blob/main/docs/minimum-requirements/kubernetes-version.md
 
