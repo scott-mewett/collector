@@ -99,6 +99,9 @@ rules:
 - apiGroups: [metrics.k8s.io]
   resources: ["*"]
   verbs: [get, watch, list]
+- apiGroups: [storage.k8s.io]
+  resources: ["*"]
+  verbs: [get, watch, list]
 ---
 # The cluster role binding allows the Service Account for the collector in the real-theory-system namespace to read objects in any namespace.
 apiVersion: rbac.authorization.k8s.io/v1
