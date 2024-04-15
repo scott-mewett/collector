@@ -59,7 +59,7 @@ This section is used to define a dedicated namespace for the RealTheory collecto
 This section is used to define a service account, which provides an identity for the RealTheory collector.
 
 ### ClusterRole
-This section defines a cluster role, which is a set of permissions that can be assigned to resources within a cluster. This cluster role grants read access (get, watch, and list) to kubernetes control plane and other APIs.
+This section defines a cluster role, which is a set of permissions that can be assigned to resources within a cluster. This cluster role grants read access (get, watch, and list) to the Kubernetes control plane and other APIs.
 
 ### ClusterRoleBinding
 This section defines a cluster role binding, which grants the Service Account for the collector the ability to read objects across all namespaces.
