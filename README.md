@@ -8,6 +8,7 @@ This document provides information on how to add the RealTheory collector to you
 ### Kubernetes
 The RealTheory collector is currently supported on the following versions of Kubernetes:
 
+- 1.29
 - 1.28
 - 1.27
 - 1.26
@@ -58,7 +59,7 @@ This section is used to define a dedicated namespace for the RealTheory collecto
 This section is used to define a service account, which provides an identity for the RealTheory collector.
 
 ### ClusterRole
-This section defines a cluster role, which is a set of permissions that can be assigned to resources within a cluster. This cluster role grants read access (get, watch, and list) to kubernetes control plane and metrics APIs.
+This section defines a cluster role, which is a set of permissions that can be assigned to resources within a cluster. This cluster role grants read access (get, watch, and list) to kubernetes control plane and other APIs.
 
 ### ClusterRoleBinding
 This section defines a cluster role binding, which grants the Service Account for the collector the ability to read objects across all namespaces.
@@ -84,7 +85,7 @@ metadata:
   name: real-theory-collector
   namespace: real-theory-system
 ---
-# The cluster role grants access to read any objects across all namespaces.
+# The cluster role grants read only access to key API groups.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -93,13 +94,16 @@ rules:
 - apiGroups: [""]
   resources: ["*"]
   verbs: [get, watch, list]
-- apiGroups: ["apps"]
+- apiGroups: [apps]
   resources: ["*"]
   verbs: [get, watch, list]
 - apiGroups: [metrics.k8s.io]
   resources: ["*"]
   verbs: [get, watch, list]
 - apiGroups: [storage.k8s.io]
+  resources: ["*"]
+  verbs: [get, watch, list]
+- apiGroups: [apiextensions.k8s.io]
   resources: ["*"]
   verbs: [get, watch, list]
 ---
