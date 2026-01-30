@@ -6,6 +6,10 @@ This document provides information related to the minimum requirements for runni
 ## Kubernetes Version
 The RealTheory collector is currently supported on the following versions of Kubernetes:
 
+- 1.35
+- 1.34
+- 1.33
+- 1.32
 - 1.31
 - 1.30
 - 1.29
